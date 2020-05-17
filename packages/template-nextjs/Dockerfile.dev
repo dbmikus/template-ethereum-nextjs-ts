@@ -1,0 +1,14 @@
+FROM node:current-slim
+
+RUN apt-get -y update
+# RUN apt-get -y install make clang autoconf g++
+# RUN apt-get -y install nodejs npm
+RUN apt-get install -y curl
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+
+RUN npm install -g next
+
+EXPOSE 3000
+workdir /app
+ADD ./docker-cmd.dev.sh .
+CMD ["./docker-cmd.dev.sh"]
