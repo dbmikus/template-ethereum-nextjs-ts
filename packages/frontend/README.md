@@ -54,19 +54,6 @@ afterwards to disassociate the repo.
 sudo docker-compose up --build
 ```
 
-## Husky and Git hooks
-
-Make sure that Husky has been installed, by checking for the
-`.git/hooks/husky.sh` file. If you are not seeing the hooks or have somehow
-messed them up, run `npm rebuild` to reinstall the Husky hooks.
-
-If you are rebasing and don't want Husky to run commit hooks on each commit in the rebase,
-you can set the `HUSKY_SKIP_HOOKS` variable:
-
-```
-HUSKY_SKIP_HOOKS=1 git rebase ...
-```
-
 ## Troubleshooting
 
 If you are running tests using VS Code and you use NVM, you might see an error like this:
