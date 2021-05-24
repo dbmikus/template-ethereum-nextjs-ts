@@ -1,0 +1,24 @@
+#!/bin/bash
+
+set -euo pipefail
+
+cd "$(dirname "$0")"/..
+
+numlines=0
+while read line
+do
+    was_branch_deleted=$(echo "$line" | grep -E '^\(delete\)' > /dev/null; echo $?)
+    numlines=$(($numlines + 1))
+done
+if [[ $numlines != "1" ]] ; then
+    echo "Error parsing STDIN. Expected 1 line, got $numlines."
+    exit 1
+fi
+
+if [ $was_branch_deleted != 0 ] ; then
+    pushd packages/frontend
+    npm run lint
+    npm run ts:type-check
+    npm run test
+    popd
+fi
