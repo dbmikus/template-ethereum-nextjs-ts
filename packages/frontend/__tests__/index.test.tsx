@@ -1,6 +1,6 @@
 import React from "react"
 import { cleanup, render } from "@testing-library/react"
-import Home from "../pages/index"
+import Home from "../src/pages/index"
 
 afterEach(() => {
     // unmount all components rendered with `render`
