@@ -33,6 +33,7 @@ module.exports = {
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
         "no-use-before-declare": "off",
+        "@typescript-eslint/ban-ts-ignore": "off",
         "@typescript-eslint/no-use-before-define": "off",
         "@typescript-eslint/explicit-function-return-type": [
             "error",
