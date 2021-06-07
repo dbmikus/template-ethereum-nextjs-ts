@@ -21,4 +21,9 @@ if [ $was_branch_deleted != 0 ] ; then
     npm run ts:type-check
     npm run test
     popd
+
+    pushd packages/eth-contracts
+    npm run compile
+    npm run test
+    popd
 fi
