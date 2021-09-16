@@ -15,7 +15,7 @@
         "ts:type-check:watch": "npm run ts:type-check -- --watch"
     },
     "dependencies": {
-        "next": "9.4.1",
+        "next": "^11.1.2",
         "react": "16.13.1",
         "react-dom": "16.13.1"
     },
@@ -46,7 +46,7 @@
         "sass": "^1.26.8",
         "ts-jest": "^26.1.0",
         "typescript": "^3.9.2",
-        "typescript-plugin-css-modules": "^2.3.0",
+        "typescript-plugin-css-modules": "^3.4.0",
         "typescript-styled-plugin": "^0.15.0"
     }
 }
