@@ -1,9 +1,12 @@
 import { ethers } from "hardhat"
 import chai from "chai"
 import chaiAsPromised from "chai-as-promised"
+import { solidity } from "ethereum-waffle"
 import { Counter__factory, Counter } from "../typechain"
 
 chai.use(chaiAsPromised)
+chai.use(solidity)
+
 const { expect } = chai
 
 describe("Counter", () => {
@@ -23,8 +26,8 @@ describe("Counter", () => {
         const initialCount = await counter.getCount()
 
         // 3
-        expect(initialCount).to.eq(0)
-        expect(counter.address).to.properAddress
+        expect(initialCount.toNumber()).to.eq(0)
+        expect(counter.address).to.be.properAddress
     })
 
     // 4
@@ -32,7 +35,7 @@ describe("Counter", () => {
         it("should count up", async () => {
             await counter.countUp()
             let count = await counter.getCount()
-            expect(count).to.eq(1)
+            expect(count.toNumber()).to.eq(1)
         })
     })
 
@@ -50,7 +53,7 @@ describe("Counter", () => {
 
             await counter.countDown()
             const count = await counter.getCount()
-            expect(count).to.eq(0)
+            expect(count.toNumber()).to.eq(0)
         })
     })
 })
